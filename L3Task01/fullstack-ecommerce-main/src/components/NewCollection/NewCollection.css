@@ -1,0 +1,31 @@
+.collection{
+   display: flex;
+   flex-direction: column;
+   /*background-color: chartreuse;*/
+   margin: 40px;
+   gap: 10px;
+   height: 170vh;
+   padding: 20px;
+   /*position: relative;*/
+}
+.collection h1{
+    color: slategray;
+    font-size: 40px;
+    font-weight: 500;
+    
+    /*background-color: aqua;*/
+    display: inline;
+}
+
+.new_collection_item{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /*background-color: brown;*/
+    gap: 10px;
+}
+.new_collection_item img {
+    max-width: 100%; 
+    max-height: 100%; 
+}
+
