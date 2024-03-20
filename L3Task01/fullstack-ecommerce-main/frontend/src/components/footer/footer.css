@@ -1,0 +1,18 @@
+.footer{
+  /*background-color: aqua;*/
+  padding: 40px;
+  
+}
+.fashionstore {
+  color: #2879fe;
+  font-weight: bold;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+.copyright {
+  margin-left: 10px;
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 40px;
+}
