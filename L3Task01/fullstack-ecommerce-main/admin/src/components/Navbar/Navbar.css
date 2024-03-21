@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    box-shadow: 0 1px 3px -2px #000;
+    margin-bottom: 1px;
+    background-color: white;
+}
+.nav-left{
+    font-size: 28px;
+    font-weight: 300;
+    /* background-color: aqua; */
+}
+.right-container{
+    width: 50px;
+    height: 40px;
+    /* background-color: cornflowerblue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
