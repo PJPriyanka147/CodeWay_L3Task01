@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import AddProjectModal from './AddProjectModal'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-// import toast from 'react-hot-toast'
+import toast from 'react-hot-toast'
 const Sidebar = () => {
 
   const [isModalOpen, setModalState] = useState(false)
