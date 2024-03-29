@@ -16,8 +16,6 @@ const password = encodeURIComponent("ecommerce@123");
 mongoose.connect(`mongodb+srv://ecommerce123:${password}@cluster0.dwdbm8x.mongodb.net/ecommerce`)
 
 //API Creation
-
-
 app.get("/", (req,res)=>{
     res.send("Express App is Running")
 })
