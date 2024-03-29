@@ -1,5 +1,5 @@
 import express from "express";
-//import api from './routes/index.js'
+import api from './routes/index.js'
 import dotenv from 'dotenv'
 import mongoose from "mongoose";
 import cors from "cors";
@@ -21,11 +21,8 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded())
 
-//app.use(api)
-//API Creation
-app.get("/", (req,res)=>{
-    res.send("Express App is Running")
-})
+app.use(api)
+
 
 app.listen(PORT, () => {
     console.log(`Your app is running in http://localhost:${PORT}`)
