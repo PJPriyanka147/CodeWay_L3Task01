@@ -10,35 +10,12 @@ import ProjectDropdown from "./ProjectDropdown"
 import axios from "axios";
 import toast from "react-hot-toast";
 import TaskModal from "./TaskModal";
+import Dashboard from "./Dashboard";
+
 
 
 function Task() {
 
-    // const itemsFromBackend = [
-    //     { _id: uuid(), content: "First task" },
-    //     { _id: uuid(), content: "Second task" },
-    //     { _id: uuid(), content: "Third task" },
-    //     { _id: uuid(), content: "Forth task" }
-    // ];
-
-    // const columnsFromBackend = {
-    //     [uuid()]: {
-    //         name: "Requested",
-    //         items: []
-    //     },
-    //     [uuid()]: {
-    //         name: "To do",
-    //         items: []
-    //     },
-    //     [uuid()]: {
-    //         name: "In Progress",
-    //         items: []
-    //     },
-    //     [uuid()]: {
-    //         name: "Done",
-    //         items: []
-    //     }
-    // };
 
     const onDragEnd = (result, columns, setColumns) => {
         if (!result.destination) return;
@@ -99,9 +76,7 @@ function Task() {
         updateTodo(data)
     };
 
-    const [isAddTaskModalOpen, setAddTaskModal] = useState(false);
-
-    // const [columns, setColumns] = useState(columnsFromBackend);
+    const [isAddTaskModalOpen, setAddTaskModal] = useState(false);;
     const [columns, setColumns] = useState({});
     const [isRenderChange, setRenderChange] = useState(false);
     const [isTaskOpen, setTaskOpen] = useState(false);
@@ -174,7 +149,7 @@ function Task() {
     }
 
     return (
-        <div className='px-12 py-6 w-full'>
+        <div className='px-12 py-6  w-full'>
             <div className="flex items-center justify-between mb-6">
                 <h1 className='text-xl text-gray-800 flex justify-start items-center space-x-2.5'>
                     <span>{title.slice(0, 25)}{title.length > 25 && '...'}</span>

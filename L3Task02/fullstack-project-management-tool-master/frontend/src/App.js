@@ -1,30 +1,37 @@
-import AppLayout from "./components/Applayout";
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Task from "./components/Task";
-import { Toaster } from "react-hot-toast";
+import LoginSignup from "./components/LoginSignup";
+import Dashboard from "./components/Dashboard";
+import AppLayout from "./components/Applayout";
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
+    
+      <Routes>
+        <Route path="/" element={<LoginSignup />} />
+        <Route path="/*" element={<MainApp />} />
+      </Routes>
+   
+  );
+}
+
+const MainApp = () => {
+  return (
     <div>
-    {/* <Navbar/> */}
-    <AppLayout>
+      <AppLayout>
       <Toaster
         position="top-right"
         gutter={8}
       />
-      <Routes>
-      <Route path="/:projectId" element={<Task />} />
-        <Route path="/" element={
-          <div className="flex flex-col items-center w-full pt-10">
-            <img src="./image/welcome.svg" className="w-5/12" alt="" />
-            <h1 className="text-lg text-gray-600">Select or create new project</h1>
-          </div>
-        } />
-      </Routes>
-    </AppLayout>
-    {/* <Home/> */}
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/:projectId" element={<Task />} />
+        </Routes>
+      </AppLayout>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
