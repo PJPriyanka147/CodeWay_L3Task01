@@ -13,7 +13,7 @@ const App = () => {
         gutter={8}
       />
       <Routes>
-        {/* <Route path="/:projectId" element={[]} /> */}
+      <Route path="/:projectId" element={<Task />} />
         <Route path="/" element={
           <div className="flex flex-col items-center w-full pt-10">
             <img src="./image/welcome.svg" className="w-5/12" alt="" />
