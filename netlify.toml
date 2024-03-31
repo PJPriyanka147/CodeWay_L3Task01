@@ -4,6 +4,6 @@
   command = "npm install"
   publish = "task1/frontend/build" # Publish directory for Task 1 frontend
 
-[[context.production]]
+[context.production]
   command = "npm install"
   publish = "task2/client/build" # Publish directory for Task 2 frontend
