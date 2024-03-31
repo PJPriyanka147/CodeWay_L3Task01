@@ -2,8 +2,8 @@
 
 [build]
   command = "npm run build"
-  publish = "task1/frontend/build" # Publish directory for Task 1 frontend
+  publish = "Task01/frontend/build" # Publish directory for Task 1 frontend
 
 [context.production]
   command = "npm run build"
-  publish = "task2/client/build" # Publish directory for Task 2 frontend
+  publish = "Task02/client/build" # Publish directory for Task 2 frontend
