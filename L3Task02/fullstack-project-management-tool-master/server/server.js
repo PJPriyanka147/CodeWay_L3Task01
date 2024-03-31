@@ -10,10 +10,17 @@ mongoose.connect(process.env.MONGODB_PATH, () => {
 }, (e) => console.log(e))
 
 
+
 const PORT = process.env.SERVER_PORT || 9000
 const origin = process.env.CORS_ORIGIN || 'http://localhost:3000'
 
 const app = express()
+
+// Define a route for the root URL
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+}); 
+
 
 app.use(cors({
     origin
