@@ -6,7 +6,6 @@ import cors from "cors";
 
 dotenv.config()
 mongoose.connect(process.env.MONGODB_PATH, () => {
-    console.log('connect');
 }, (e) => console.log(e))
 
 
@@ -25,9 +24,17 @@ app.get('/new', (req, res) => {
     res.send('this is new!');
 }); 
 
-app.use(cors({
-    origin
-}));
+// app.use(cors({
+//     origin
+// }));
+   
+// Addings CORS middleware with specific origin
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://project-planner1203.netlify.app');
+    next();
+  });
+
+
 
 app.use(express.json())
 app.use(express.urlencoded())
