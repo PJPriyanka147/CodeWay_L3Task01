@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
-import Task from './Task'
 
 const Dashboard = ({children}) => {
   

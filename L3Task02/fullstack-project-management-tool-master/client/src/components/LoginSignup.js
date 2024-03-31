@@ -12,7 +12,7 @@ const LoginSignup = () => {
       <div className=' relative w-full md:w-auto flex gap-0 md:gap-40 flex-col md:flex-row items-center justify-center'>
       
        
-        <div className='w-full md:w-1/3 p-4 md:p-1 flex flex-col justify-center items-center'>
+        {/* <div className='w-full md:w-1/3 p-4 md:p-1 flex flex-col justify-center items-center'> */}
           <form
             // onSubmit={handleSubmit(submitHandler)}
             className='form-container w-full md:w-[500px] flex flex-col gap-y-8 bg-white px-10 pt-14 pb-14'
@@ -81,7 +81,6 @@ const LoginSignup = () => {
           </form>
         </div>
       </div>
-     </div>
     
     );
 };
@@ -90,24 +89,4 @@ export default LoginSignup
 
 
 
-       {/* <img className='absolute inset-0 w-full h-full object-cover' src={background} alt="Background" /> */
-     
-
-      /* <div className="absolute inset-0 h-500 w-300 bg-red-300">
-        <div className="w-400 h-200 bg-green-400 p-20">
-          <h1 className='text-24 font-semibold mb-10'>Sign Up</h1>
-          <div className="flex flex-col gap-20">
-            <input type="text" className="h-50 border-1 border-gray-300 outline-none px-20 text-18 text-gray-600" placeholder='Your Name' />
-            <input type="email" className="h-50 border-1 border-gray-300 outline-none px-20 text-18 text-gray-600" placeholder='Your Email' />
-            <input type="password" className="h-50 border-1 border-gray-300 outline-none px-20 text-18 text-gray-600" placeholder='Password' />
-          </div>
-          <button className='w-440 h-50 mt-30 text-white bg-red-500 border-none text-24 font-semibold cursor-pointer'>Continue</button>
-          <p className='p-10 text-15'>Already have an account ? <span className='text-red-500'>Login Here</span></p>
-          <div className="text-gray-600 mt-20">
-            <input type="checkbox" name="" id="" />
-            <p className='p-10 text-15'>By continuing, I agree to the terms of use & privacy policy.</p>
-          </div>
-        </div>
-</div>*/}
     
- 
