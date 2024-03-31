@@ -20,11 +20,15 @@ const app = express()
 app.get('/', (req, res) => {
     res.send('Hello World!');
 }); 
-
+// Define a route for the root URL
+app.get('/new', (req, res) => {
+    res.send('this is new!');
+}); 
 
 app.use(cors({
     origin
 }));
+
 app.use(express.json())
 app.use(express.urlencoded())
 
