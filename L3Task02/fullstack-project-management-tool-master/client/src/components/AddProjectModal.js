@@ -27,7 +27,7 @@ const AddProjectModal = ({ isModalOpen, closeModal, edit = false, id = null }) =
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!edit) {
-            axios.post('http://localhost:9000/project/', { title, description: desc })
+            axios.post('https://project-planner-kpsx.onrender.com/project/', { title, description: desc })
                 .then((res) => {
                     closeModal()
                     const customEvent = new CustomEvent('projectUpdate', { detail: { ...res.data } });
