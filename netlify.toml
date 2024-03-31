@@ -3,7 +3,7 @@
 [build]
   command = "npm run build"
   publish = "Task02/client/build" 
-  base ="client"
+  base =  "Task02/client"
 
 [context.production]
   command = "npm run build"
