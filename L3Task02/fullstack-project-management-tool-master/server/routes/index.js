@@ -10,6 +10,7 @@ api.get('/projects', async (req, res) => {
         const data = await Project.find({}, { task: 0, __v: 0, updatedAt: 0 })
         return res.send(data)
     } catch (error) {
+        console.log(error)
         return res.send(error)
     }
 })
