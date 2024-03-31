@@ -2,9 +2,9 @@
 
 [build]
   command = "npm run build"
-  publish = "project-planner/build" 
+  publish = "/build" 
   base = "L3Task02/fullstack-project-management-tool-master/client"
 
 [context.production]
   command = "npm run build"
-  publish = "project-planner/build" 
+  publish = "/build" 
