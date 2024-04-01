@@ -15,14 +15,12 @@ const origin = process.env.CORS_ORIGIN || 'http://localhost:3000'
 
 const app = express()
 
-// Define a route for the root URL
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-}); 
-// Define a route for the root URL
-app.get('/new', (req, res) => {
-    res.send('this is new!');
-}); 
+//API Creation
+
+app.get("/", (req,res)=>{
+    res.send("Express App is Running")
+})
+
 
 // app.use(cors({
 //     origin
@@ -31,6 +29,8 @@ app.get('/new', (req, res) => {
 // Addings CORS middleware with specific origin
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://project-planner1203.netlify.app');
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+
     next();
   });
 
