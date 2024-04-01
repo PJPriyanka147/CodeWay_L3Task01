@@ -9,7 +9,13 @@ const path = require("path");
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+
+// Allow requests from both frontend and admin
+//const allowedOrigins = ['http://localhost:3000', 'http://localhost:5173'];
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:5173']
+}));
 
 //Database Connection with MongoDB
 const password = encodeURIComponent("ecommerce@123");
@@ -150,10 +156,10 @@ const  Users = mongoose.model('Users',{
 
 //Creating Endpoint for registering the user
 
-app.post('/Signup', async(req, res)=>{
+app.post('/signup', async(req, res)=>{
     let check = await Users.findOne({email:req.body.email});
     if (check){
-        return res.status(400).json({successs:false, errros:"existing user found with same email address"})
+        return res.status(400).json({success:false, errors:"existing user found with same email address"})
     }
     let cart = {};
     for (let i = 0; i < 300; i++) {
@@ -178,6 +184,29 @@ app.post('/Signup', async(req, res)=>{
     const token = jwt.sign(data,'secret_ecom');
     res.json({success:true,token})
 
+})
+
+//Creating Endpoint for user login
+app.post('/login', async (req,res)=>{
+    let user = await Users.findOne({email:req.body.email});
+    if (user){
+        const passCompare = req.body.password === user.password;
+        if (passCompare){
+            const data = {
+                user:{
+                    id:user.id
+                }
+            }
+            const token = jwt.sign(data,'secret_ecom');
+            res.json({success:true, token});
+        }
+        else{
+            res.json({success:false, errors:"Wrong Password"});
+        }
+    }
+    else{
+        res.json({success:false, errors:"Wrong Email Id"});
+    }
 })
 
 app.listen(port, (error)=>{
