@@ -3,7 +3,7 @@
 [build]
   command = "npm run build"
   publish = "L3Task02/fullstack-project-management-tool-master/build" 
-  base = "L3Task02/fullstack-project-management-tool-master/client"
+  base = "L3Task02/fullstack-project-management-tool-master/cli"
 
 [context.production]
   command = "npm run build"
