@@ -23,7 +23,7 @@ app.get("/", (req,res)=>{
 
 
 app.use(cors({
-    origin
+    origin:'https://project-planner1203.netlify.app',
 }));
 
 
