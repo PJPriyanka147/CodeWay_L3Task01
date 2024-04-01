@@ -8,9 +8,11 @@ const api = express.Router()
 api.get('/projects', async (req, res) => {
     try {
         const data = await Project.find({}, { task: 0, __v: 0, updatedAt: 0 })
-        return res.send(data)
+        //return res.send(data)
+        return res.status(200).send(data);
     } catch (error) {
-        return res.send(error)
+        console.error("Error occurred while fetching projects:", error);
+        return res.status(500).send("Internal Server Error");
     }
 })
 

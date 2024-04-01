@@ -22,17 +22,9 @@ app.get("/", (req,res)=>{
 })
 
 
-// app.use(cors({
-//     origin
-// }));
-   
-// Addings CORS middleware with specific origin
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'https://project-planner1203.netlify.app');
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-
-    next();
-  });
+app.use(cors({
+    origin
+}));
 
 
 
