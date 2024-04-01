@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './Navbar.css';
 import person_icon from '../../assets/person_icon.png';
 import cart_icon from '../../assets/cart_icon.png';
+import logout_icon from '../../assets/logout.png';
 
 const Navbar = () => {
   return (
@@ -28,7 +29,9 @@ const Navbar = () => {
                 <li><Link  className="link"   to='/contact'>Contacts</Link></li> 
             </ul>
             <div className="nav-login-cart">
-                <Link   className="link" to='/login'><img src={person_icon} /></Link>
+              {localStorage.getItem('auth-token')? <img onClick ={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}src={logout_icon}/>
+              : <Link   className="link" to='/login'><img src={person_icon} /></Link>}
+               
                 <Link  className="link"   to='/cart'><img src={cart_icon} /></Link>
                 <div className="nav-cart-count">0</div>
             </div>
