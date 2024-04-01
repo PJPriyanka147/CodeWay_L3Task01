@@ -26,8 +26,8 @@ app.get("/", (req,res)=>{
     res.send("Express App is Running")
 })
 
-//Image Storage Engine
 
+//Image Storage Engine
 const storage = multer.diskStorage({
     destination: './upload/images' ,
     filename:(req,file,cb)=>{
@@ -48,7 +48,6 @@ app.post("/upload",upload.single('product'),(req,res)=>{
 })
 
 //Schema for creating products
-
 const Product = mongoose.model("Product", {
     id:{
         type:Number,
@@ -114,7 +113,6 @@ app.post('/addproduct', async(req, res)=>{
 })
 
 //Creating API for deleting Products
-
 app.post('/removeproduct', async(req,res)=>{
     await Product.findOneAndDelete({id:req.body.id});
     console.log("Removed");
@@ -133,7 +131,6 @@ app.get('/allproducts', async (req, res)=>{
 })
 
 //Schema for User Model
-
 const  Users = mongoose.model('Users',{
     name :{
         type:String,
@@ -155,7 +152,6 @@ const  Users = mongoose.model('Users',{
 })
 
 //Creating Endpoint for registering the user
-
 app.post('/signup', async(req, res)=>{
     let check = await Users.findOne({email:req.body.email});
     if (check){
@@ -209,6 +205,8 @@ app.post('/login', async (req,res)=>{
     }
 })
 
+
+//To display server errors
 app.listen(port, (error)=>{
     if(!error){
         console.log("Server Running on Port "+port)
