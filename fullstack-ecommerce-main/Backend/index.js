@@ -137,7 +137,7 @@ app.post('/removeproduct', async(req,res)=>{
 
 
 //Creating API for getting all products
-app.get('https://fashionstore-u7cx.onrender.com/allproducts', async (req, res)=>{
+app.get('/allproducts', async (req, res)=>{
     let products = await Product.find({});
     console.log("All products Fetched");
     res.send(products); 
