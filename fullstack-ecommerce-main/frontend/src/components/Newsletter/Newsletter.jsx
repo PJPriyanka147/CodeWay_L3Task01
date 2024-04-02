@@ -11,10 +11,10 @@ const Newsletter = () => {
           <button>JOIN US</button>
         </div>
         <div className="icon">
-        <a href="#" ><i className="fab fa-facebook "></i></a>
-            <a href="#" ><i className="fab fa-twitter "></i></a>
-            <a href="#" ><i className="fab fa-pinterest "></i></a>
-            <a href="#" ><i className="fab fa-whatsapp "></i></a>
+        <i className="fab fa-facebook "></i>
+            <i className="fab fa-twitter "></i>
+            <i className="fab fa-pinterest "></i>
+           <i className="fab fa-whatsapp "></i>
         </div>
       </div>
     </div>
