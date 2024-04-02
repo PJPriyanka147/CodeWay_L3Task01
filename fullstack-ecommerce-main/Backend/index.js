@@ -1,5 +1,5 @@
 
-const port = 4000;
+//const port = 4000;
 const express =  require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -7,25 +7,38 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const dotenv =require("dotenv");
 
+dotenv.config();
+
+// Set up middleware for parsing JSON bodies
 app.use(express.json());
 
 // Allow requests from both frontend and admin
-//const allowedOrigins = ['http://localhost:3000', 'http://localhost:5173'];
-
 app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:5173']
 }));
 
-//Database Connection with MongoDB
-const password = encodeURIComponent("ecommerce@123");
-mongoose.connect(`mongodb+srv://ecommerce123:${password}@cluster0.dwdbm8x.mongodb.net/ecommerce`)
+//Set the port from the environment variable or default to 4000
+const port = process.env.PORT|| 4000;
+
+// Set up environment variables for database connection
+const dbPassword = process.env.DB_PASSWORD;
+const dbURI = process.env.DB_URI;
+
+// Database Connection with MongoDB
+mongoose.connect(dbURI)
+.then(() => {
+    console.log('Connected to MongoDB Atlas');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB Atlas:', error);
+  });
 
 //API Creation
 app.get("/", (req,res)=>{
     res.send("Express App is Running")
 })
-
 
 //Image Storage Engine
 const storage = multer.diskStorage({
