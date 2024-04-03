@@ -42,20 +42,38 @@ const signup = async () =>{
   await fetch('https://fashionstore-u7cx.onrender.com/signup', {
     method:'POST',
     headers:{
-      Accept:'application/form-data',
+      // Accept:'application/form-data',
       'Content-Type':'application/json',
     },
-    body: JSON.stringify(formData),
-  }).then((response)=>response.json()).then((data)=>responseData=data)
+    body: JSON.stringify(formData), })
+//   }).then((response)=>response.json()).then((data)=>responseData=data;
 
-  if(responseData.success){
-    localStorage.setItem('auth-token',responseData.token);
+//   if(responseData.success){
+//     localStorage.setItem('auth-token',responseData.token);
+//     window.location.replace("/");
+//   }
+//   else{
+//     alert(responseData.errors);
+//   }
+// })
+// .catch((error) => {
+//   console.error('Error:', error);
+// });
+// };
+.then((response) => response.json())
+.then((data) => {
+  responseData = data;
+  if (responseData.success) {
+    localStorage.setItem('auth-token', responseData.token);
     window.location.replace("/");
-  }
-  else{
+  } else {
     alert(responseData.errors);
   }
-}
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+};
 
 
   return (
@@ -67,7 +85,7 @@ const signup = async () =>{
         <input  name="email" value={formData.email} onChange={changeHandler}type="email"  placeholder='Your Email'/>
         <input  name="password" value={formData.password} onChange={changeHandler}type="password"  placeholder='Password'/>
       </div>
-      <button onClick={()=>{state==="Login"?login() : signup()}}>Continue</button>
+      <button onClick={()=>{state==="Login"? login() : signup()}}>Continue</button>
       {state==="Sign Up"?<p className='loginsignup-login'>Already have an account ?  <span onClick={()=>{setState("Login")}}>Login Here</span></p>
       : <p className='loginsignup-login'>Create an account ?  <span onClick={()=>{setState("Sign Up")}}>Click Here</span ></p>}
       
