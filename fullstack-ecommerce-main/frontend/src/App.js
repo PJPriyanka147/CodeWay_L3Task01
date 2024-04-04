@@ -13,6 +13,8 @@ import Contact from './Pages/Contact';
 import men_banner from './assets/banner_mens.png';
 import women_banner from './assets/banner_women.png';
 import kids_banner from './assets/banner_kids.png';
+import Cancel from './components/Cancel/Cancel';
+import Success from './components/Success/Success';
 
 
 
@@ -36,6 +38,9 @@ const App = () => {
      
       <Route path='/login' element={<LoginSignup/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path='/success' element={<Success/>}/>
+      <Route path='/cancel' element={<Cancel/>}/>
+
     </Routes>
     <Footer/>
     </BrowserRouter>

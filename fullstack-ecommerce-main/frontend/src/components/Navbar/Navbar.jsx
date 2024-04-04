@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom";
 import './Navbar.css';
 import person_icon from '../../assets/person_icon.png';
 import cart_icon from '../../assets/cart_icon.png';
 import logout_icon from '../../assets/logout.png';
+import { CategoriesContext } from '../Context/CatergoriesContext';
 
 const Navbar = () => {
+
+const {getTotalCartItems} = useContext(CategoriesContext);
+
   return (
     <div className="navbar">
         <div className="navwrapper">
@@ -33,7 +37,7 @@ const Navbar = () => {
               : <Link   className="link" to='/login'><img src={person_icon} alt='' /></Link>}
                
                 <Link  className="link"   to='/cart'><img src={cart_icon} alt='' /></Link>
-                <div className="nav-cart-count">0</div>
+                <div className="nav-cart-count">{getTotalCartItems()}</div>
             </div>
             </div>
         </div>
