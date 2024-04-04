@@ -17,7 +17,7 @@ app.use(express.json());
 
 // Allow requests from both frontend and admin
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', ]
+  origin: ['http://localhost:3000', 'http://localhost:5173']
 }));
 
 //Set the port from the environment variable or default to 4000
@@ -226,27 +226,27 @@ app.post("/checkout-session", async(req,res) => {
     console.log(products);
     console.log(cart);
 
-    const lineItems = products.map((product)=>{
-
-        let qnty = product.new_price * cart[product.id]; 
-
-         // Check if qnty is less than 1, set it to 1
+    const lineItems = products.map((product) => {
+        let qnty = cart[product.id];
+        // Check if qnty is less than 1, set it to 1
         if (qnty < 1) {
             qnty = 1;
-         }
+        }
 
         return {
             price_data: {
-                currency: "inr",
-                name: product.title, 
-                product: product.id, 
+                currency: "USD",
+                product_data: {
+                    name: product.name
+                    // images: [product.image]
+                },
                 unit_amount: product.new_price * 100,
             },
             quantity: qnty
         };
+    });
 
-        });
-        
+
 
         const session = await stripe.checkout.sessions.create({
             payment_method_types:["card"],
@@ -259,31 +259,6 @@ app.post("/checkout-session", async(req,res) => {
              res.json({id:session.id})
     })
         
-
-//     const lineItems = cartItems.map((product)=>({
-//         price_data:{
-//             currency:"inr",
-//             product_data:{
-//                 name:product.title
-//             },
-//             unit_amount:product.new_price * 100,
-//         },
-//         //quantity:product.new_price*cartItems[product.id]
-//     }));
-
-//     const session = await stripe.checkout.sessions.create({
-//         payment_method_types:["card"],
-//         line_items:lineItems,
-//         mode:"payment",
-//         success_url:"http://localhost:3000/success",
-//         cancel_url:"http://localhost:3000/cancel",
-//     });
-
-//     res.json({id:session.id})
-// })
-
-
-
 
 //To display server errors
 app.listen(port, (error)=>{
