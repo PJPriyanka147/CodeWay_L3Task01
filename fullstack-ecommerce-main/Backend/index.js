@@ -8,6 +8,7 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const dotenv =require("dotenv");
+const stripe = require("stripe")("sk_test_51P1SBdSEXwTNKeYBvmXr3IuAzzQwZG9OMpBpW406Qw8FANZWEHuWVaPdyyb2UTUI0l4uQ3cye2m1IP2Sw8Ppnuc900fU5fqZ1X")
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ app.use(express.json());
 
 // Allow requests from both frontend and admin
 app.use(cors({
-  origin: ['https://fashionstore1203.netlify.app','http://localhost:3000', 'http://localhost:5173', ]
+  origin: ['http://localhost:3000', 'http://localhost:5173', ]
 }));
 
 //Set the port from the environment variable or default to 4000
@@ -217,6 +218,71 @@ app.post('/login', async (req,res)=>{
         res.json({success:false, errors:"Wrong Email Id"});
     }
 })
+
+//Creating Endpoint for payment integration
+app.post("/checkout-session", async(req,res) => {
+    const { products, cart } = req.body;
+
+    console.log(products);
+    console.log(cart);
+
+    const lineItems = products.map((product)=>{
+
+        let qnty = product.new_price * cart[product.id]; 
+
+         // Check if qnty is less than 1, set it to 1
+        if (qnty < 1) {
+            qnty = 1;
+         }
+
+        return {
+            price_data: {
+                currency: "inr",
+                name: product.title, 
+                product: product.id, 
+                unit_amount: product.new_price * 100,
+            },
+            quantity: qnty
+        };
+
+        });
+        
+
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types:["card"],
+            line_items:lineItems,
+            mode:"payment",
+            success_url:"http://localhost:3000/success",
+            cancel_url:"http://localhost:3000/cancel",
+         });
+                    
+             res.json({id:session.id})
+    })
+        
+
+//     const lineItems = cartItems.map((product)=>({
+//         price_data:{
+//             currency:"inr",
+//             product_data:{
+//                 name:product.title
+//             },
+//             unit_amount:product.new_price * 100,
+//         },
+//         //quantity:product.new_price*cartItems[product.id]
+//     }));
+
+//     const session = await stripe.checkout.sessions.create({
+//         payment_method_types:["card"],
+//         line_items:lineItems,
+//         mode:"payment",
+//         success_url:"http://localhost:3000/success",
+//         cancel_url:"http://localhost:3000/cancel",
+//     });
+
+//     res.json({id:session.id})
+// })
+
+
 
 
 //To display server errors
