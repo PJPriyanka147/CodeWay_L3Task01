@@ -5,33 +5,25 @@ import person_icon from '../../assets/person_icon.png';
 import cart_icon from '../../assets/cart_icon.png';
 import logout_icon from '../../assets/logout.png';
 import { CategoriesContext } from '../Context/CatergoriesContext';
-import nav_dropdown from '../../assets/nav_dropdown.png';
+
 
 const Navbar = () => {
 
 const {getTotalCartItems} = useContext(CategoriesContext);
-const menuRef = useRef();
-
-const dropdown_toggle = (e) => {
-  menuRef.current.classList.toggle("nav-menu-visible");
-  e.target.classList.toggle('open');
-};
 
   return (
     <div className="navbar">
         <div className="navwrapper">
         <div className="left">
-        <img onClick={dropdown_toggle} src={nav_dropdown} alt="" />
           <Link className ="link" to="/">FASHIONSTORE</Link>
         </div>
         <div className="center">
-           <ul  ref={menuRef} className='item'>
+           <ul className='item'>
                 <li><Link  className="link" to='/women'>Women</Link></li>
                 <li><Link className="link" to='/men'>Men</Link></li>
                 <li><Link className="link" to='/children'>Children</Link></li>
             </ul>
             </div>
-           
             <div className="right">
             <div className="nav-login-cart">
               {localStorage.getItem('auth-token')? <img onClick ={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}src={logout_icon} alt=''/>
