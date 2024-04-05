@@ -8,7 +8,7 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const dotenv =require("dotenv");
-const stripe = require("stripe")("sk_test_51P1SBdSEXwTNKeYBvmXr3IuAzzQwZG9OMpBpW406Qw8FANZWEHuWVaPdyyb2UTUI0l4uQ3cye2m1IP2Sw8Ppnuc900fU5fqZ1X")
+const stripe = require("stripe")(process.env.SECRET_KEY)
 
 dotenv.config();
 
