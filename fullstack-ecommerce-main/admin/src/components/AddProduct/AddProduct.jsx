@@ -29,7 +29,7 @@ const Add_Product = async ()=>{
   let formData = new FormData();
   formData.append('product',image);
 
-  await fetch('https://fashionstore-u7cx.onrender.com/upload',{
+  await fetch('http://localhost:4000/upload',{
     method:'POST',
     headers:{
       Accept:'application/json',
@@ -40,7 +40,7 @@ const Add_Product = async ()=>{
   {
     product.image = responseData.image_url;
     console.log(product);
-    await fetch('https://fashionstore-u7cx.onrender.com/addproduct',{
+    await fetch('http://localhost:4000/addproduct',{
       method:'POST',
       headers:{
         Accept: 'application/json',
