@@ -21,24 +21,18 @@ const dropdown_toggle = (e) => {
     <div className="navbar">
         <div className="navwrapper">
         <div className="left">
-         <img onClick={dropdown_toggle} src={nav_dropdown} alt="" />
+        <img onClick={dropdown_toggle} src={nav_dropdown} alt="" />
+          <Link className ="link" to="/">FASHIONSTORE</Link>
+        </div>
+        <div className="center">
            <ul  ref={menuRef} className='item'>
                 <li><Link  className="link" to='/women'>Women</Link></li>
                 <li><Link className="link" to='/men'>Men</Link></li>
                 <li><Link className="link" to='/children'>Children</Link></li>
-                <li><Link  className="link" to='/accessories'>Accessories</Link></li>
             </ul>
-      
             </div>
-            <div className="center">
-          <Link className ="link" to="/">FASHIONSTORE</Link>
-        </div>
+           
             <div className="right">
-            <ul className='item'>
-            <li><Link className="link"  to='/home'>Homepage</Link></li>
-                <li><Link  className="link"  to='/about'>About</Link></li>
-                <li><Link  className="link"   to='/contact'>Contacts</Link></li> 
-            </ul>
             <div className="nav-login-cart">
               {localStorage.getItem('auth-token')? <img onClick ={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}src={logout_icon} alt=''/>
               : <Link   className="link" to='/login'><img src={person_icon} alt='' /></Link>}

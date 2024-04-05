@@ -8,7 +8,7 @@ const  TrendingProduct = () => {
   return (
     <div className='trendingProduct'>
         <h1> Our Trending Products</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+        <p>Discover our latest collection of trending products, meticulously curated to elevate your style. From timeless classics to cutting-edge designs, we offer a diverse range of fashion-forward pieces to suit every taste and occasion. Explore our selection today and stay ahead of the curve with our must-have essentials.</p>
 <div className="dataproduct">
 {dataProduct.map((item,i )=>{
  return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}/>

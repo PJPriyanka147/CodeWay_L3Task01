@@ -1,0 +1,17 @@
+.allproduct{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+    padding: 0px 20px;
+    gap: 10px;
+}
+.all_product_item{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+.all_product_item img {
+    max-width: 100%; 
+    max-height: 100%; 
+}

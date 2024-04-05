@@ -5,7 +5,7 @@
     align-items: center;
     gap: 10px;
     /* justify-content: center; */
-    height: 100vh;
+    height: 90vh;
 }
 .relatedproduct h1{
     font-size: 40px;
@@ -19,7 +19,6 @@
     background: #252525;
 }
 .related-products-item{
-    /* background-color: brown; */
     margin-top: 50px;
     display: flex;
     justify-content: center;
