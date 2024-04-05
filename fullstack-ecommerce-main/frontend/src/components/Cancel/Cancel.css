@@ -1,0 +1,45 @@
+.payment-failed-top-container{
+    background: #dcf0fa; 
+    height: 100vh;
+    position: relative;
+}
+.payment-failed-container{
+    width: 400px;
+    height: 447px;
+    background-color: white;
+    position: absolute;
+    top:80px;
+    left:480px;
+    padding: 40px;
+}
+.failed-main-contents{
+    margin: 0 12px;
+    padding: 24px;
+}
+.failed-icon{
+    text-align: center;
+    font-size: 48px;
+    height: 72px;
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    margin: 16px auto;
+    color: #fff;
+    background-color: rgb(248, 42, 42);
+}
+.failed-title{
+    font-size: 22px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.failed-description{
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 21px;
+    color: #999;
+    text-align: center;
+    margin-bottom: 24px;
+}

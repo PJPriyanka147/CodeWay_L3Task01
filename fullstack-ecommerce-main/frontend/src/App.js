@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import './index.css';
 import Footer from './components/footer/footer';
@@ -15,31 +15,41 @@ import Cancel from './components/Cancel/Cancel';
 import Success from './components/Success/Success';
 import AllProduct from './components/AllProduct/AllProduct';
 
+const Main = () => {
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+        <Route path='/women' element={<Categories banner={women_banner} category="women" />} />
+        <Route path='/men' element={<Categories banner={men_banner} category="men" />} />
+        <Route path='/children' element={<Categories banner={kids_banner} category="children" />} />
+        <Route path='/product' element={<Product />}>
+          <Route path=':productId' element={<Product />} />
+        </Route>
+        <Route path='/allproduct' element={<AllProduct />} />
+        <Route path='/login' element={<LoginSignup />} />
+        <Route path='/cart' element={<Cart />} />
+      </Routes>
+      <Footer />
+    </>
+  );
+};
 
+const Layout = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/success' element={<Success />} />
+        <Route path='/cancel' element={<Cancel />} />
+        <Route element={<Main />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 const App = () => {
-  return (
-   
-    <BrowserRouter>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Homepage/>}/>
-      <Route path='/women' element={<Categories  banner={women_banner} category="women"/>}/>
-      <Route path='/men' element={<Categories banner={men_banner}  category="men"/>}/>
-      <Route path='/children' element={<Categories banner={kids_banner} category="children"/>}/>
-       <Route path="/product" element={<Product/>}>
-            <Route path=':productId' element={<Product/>}/>
-            </Route>  
-      <Route path='/allproduct' element={<AllProduct/>}/>
-      <Route path='/login' element={<LoginSignup/>}/>
-      <Route path='/cart' element={<Cart/>}/>
-      <Route path='/success' element={<Success/>}/>
-      <Route path='/cancel' element={<Cancel/>}/>
-    </Routes>
-    <Footer/>
-    </BrowserRouter>
-    
-  )
-}
+  return <Layout />;
+};
 
-export default App
+export default App;
