@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import { Link } from "react-router-dom";
 import './Navbar.css';
 import person_icon from '../../assets/person_icon.png';
