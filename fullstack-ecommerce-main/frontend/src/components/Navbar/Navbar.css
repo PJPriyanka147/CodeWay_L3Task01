@@ -78,11 +78,10 @@
   }
 
   .item li {
-    display: none; /* Hide Women and Men */
+    display: none; 
   }
   .nav-menu-visible {
-    /*display: block; /* Show the dropdown menu */
-    padding: 15px; /* Add padding for better spacing */
+    padding: 15px;
   }
   .left {
     display: flex;
@@ -94,11 +93,9 @@
   }
   .right {
     width: 70px;
-
     gap: 0px;
   }
   .nav-login-cart {
-    /* background-color: brown; */
     height: 28px;
     width: 80px;
   }
@@ -114,33 +111,3 @@
     margin-top: -24px;
   }
 }
-/* .navwrapper {
-    padding: 15px; 
-  }
-  .item {
-    flex-direction: column;  */
-/* gap: 15px; Reduce the gap between items */
-
-/* .left, .right {
-    display: none; /* Hide left and right sections */
-
-/* .center {
-    font-size: 24px; /* Decrease font size */
-/* letter-spacing: 1px; /* Adjust letter spacing */
-
-/* .nav-login-cart {
-    width: 100px; /* Adjust width */
-
-/* .nav-login-cart button {
-    width: 50px; Adjust button width
-  } */
-/* .nav-login-cart img {
-    height: 20px; /* Adjust image size */
-/* width: 20px;  */
-
-/* .nav-cart-count {
-    width: 18px; /* Adjust count badge size */
-/* height: 18px;
-    margin-left: -20px; /* Adjust margins */
-/* margin-top: -15px; */
-/* font-size: 12px; Adjust font size */
