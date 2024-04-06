@@ -1,24 +1,39 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import './index.css';
 import Footer from './components/footer/footer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginSignup from './Pages/LoginSignup';
 import Homepage from './Pages/Homepage';
 import Categories from './Pages/Categories';
 import Product from './Pages/Product';
 import Cart from './Pages/Cart';
-import men_banner from './assets/banner_mens.png';
-import women_banner from './assets/banner_women.png';
-import kids_banner from './assets/banner_kids.png';
+import LoginSignup from './Pages/LoginSignup';
 import Cancel from './components/Cancel/Cancel';
 import Success from './components/Success/Success';
 import AllProduct from './components/AllProduct/AllProduct';
+import men_banner from './assets/banner_mens.png';
+import women_banner from './assets/banner_women.png';
+import kids_banner from './assets/banner_kids.png';
 
-const Main = () => {
+const App = () => {
+  
+  // Ensure that useLocation() is used within the component wrapped by Router
   return (
-    <>
-      <Navbar />
+    <Router>
+      <AppContent />
+    </Router>
+  );
+};
+
+const AppContent = () => {
+
+  const location = useLocation();
+
+  // Determine whether to show Navbar and Footer based on the current location
+  const showNavbarAndFooter = location.pathname !== '/success' && location.pathname !== '/cancel';
+
+  return (
+    <div>
+      {showNavbarAndFooter && <Navbar />}
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/women' element={<Categories banner={women_banner} category="women" />} />
@@ -30,26 +45,12 @@ const Main = () => {
         <Route path='/allproduct' element={<AllProduct />} />
         <Route path='/login' element={<LoginSignup />} />
         <Route path='/cart' element={<Cart />} />
-      </Routes>
-      <Footer />
-    </>
-  );
-};
-
-const Layout = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
         <Route path='/success' element={<Success />} />
         <Route path='/cancel' element={<Cancel />} />
-        <Route element={<Main />} />
       </Routes>
-    </BrowserRouter>
+      {showNavbarAndFooter && <Footer />}
+    </div>
   );
-};
-
-const App = () => {
-  return <Layout />;
 };
 
 export default App;
