@@ -23,7 +23,7 @@ const CartItems = () => {
      const headers = {
         'Content-Type':'application/json'
     }
-   const response = await fetch("http://localhost:4000/checkout-session", {
+   const response = await fetch("https://fashionstore-u7cx.onrender.com/checkout-session", {
        method:"POST",
        headers:headers,
        body:JSON.stringify(body)
