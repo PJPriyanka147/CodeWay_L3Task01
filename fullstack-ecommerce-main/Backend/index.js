@@ -17,7 +17,7 @@ app.use(express.json());
 
 // Allow requests from both frontend and admin
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173']
+  origin: ['https://fashionstore1203.netlify.app','http://localhost:3000', 'http://localhost:5173']
 }));
 
 //Set the port from the environment variable or default to 4000
