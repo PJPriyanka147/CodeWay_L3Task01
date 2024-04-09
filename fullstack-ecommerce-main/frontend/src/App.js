@@ -16,7 +16,6 @@ import kids_banner from './assets/banner_kids.png';
 
 const App = () => {
   
-  // Ensure that useLocation() is used within the component wrapped by Router
   return (
     <Router>
       <AppContent />
@@ -28,7 +27,6 @@ const AppContent = () => {
 
   const location = useLocation();
 
-  // Determine whether to show Navbar and Footer based on the current location
   const showNavbarAndFooter = location.pathname !== '/success' && location.pathname !== '/cancel';
 
   return (
