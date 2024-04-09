@@ -54,7 +54,25 @@ const CategoriesContextProvider = (props) => {
         return totalItem;
     }
 
-     const ContextValue = {getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart};
+    const getCartItemsArray = () => {
+        const cartItemsArray = [];
+        for (const itemId in cartItems) {
+            if (cartItems[itemId] > 0) {
+                const itemInfo = all_product.find((product) => product.id === Number(itemId));
+                cartItemsArray.push({
+                    id: itemInfo.id,
+                    quantity: cartItems[itemId],
+                    name: itemInfo.name,
+                    price:itemInfo.new_price
+                    // Add other properties as needed
+                });
+            }
+        }
+        return cartItemsArray;
+    }
+  
+
+     const ContextValue = {getTotalCartItems, cartItems: getCartItemsArray(), getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart};
 
     return(
         <CategoriesContext.Provider value={ContextValue}>

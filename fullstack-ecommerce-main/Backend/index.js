@@ -221,12 +221,12 @@ app.post('/login', async (req,res)=>{
 
 //Creating Endpoint for payment integration
 app.post("/checkout-session", async(req,res) => {
-    const { products, cart } = req.body;
+    const { cartItems } = req.body;
 
-    console.log(products);
-    console.log(cart);
+    console.log(cartItems);
+    //console.log(cart);
 
-    const lineItems = products.map((product) => {
+    const lineItems = cartItems.map((product) => {
         let qnty = cart[product.id];
         // Check if qnty is less than 1, set it to 1
         if (qnty < 1) {

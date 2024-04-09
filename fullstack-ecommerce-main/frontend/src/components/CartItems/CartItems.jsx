@@ -11,17 +11,18 @@ const CartItems = () => {
    
     //payment Integration
     const makePayment = async() => {
-    console.log(all_product);
+    //console.log(all_product);
     console.log(cartItems);
     const stripe = await loadStripe("pk_test_51P1SBdSEXwTNKeYBXTOJP2lXtX51xNLTVoXWRSjX7BbT1jTL3sHQlv5Wr7JYzHawfLGqds2ay1IUDSGCEpqPbGSn003xcf9vLz");
 
    const body = {
-       products:all_product,
-       cart:cartItems
+       cartItems:cartItems
     }
 
      const headers = {
-        'Content-Type':'application/json'
+        'Content-Type':'application/json',
+        
+
     }
    const response = await fetch("http://localhost:4000/checkout-session", {
        method:"POST",
